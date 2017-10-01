@@ -28,6 +28,7 @@ public class Deck {
                 }
             }
         }
+        shuffle();
     }
 
     public void shuffle() {
@@ -53,6 +54,10 @@ public class Deck {
     public boolean needsReshuffle() {
         int remainingCardsThreshold = (int) (deck.length * 0.25);
         return (remainingCardsThreshold > (deck.length - spot));
+    }
+
+    public boolean isFreshDeck() {
+        return (spot == 0);
     }
 
 }
