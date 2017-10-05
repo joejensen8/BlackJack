@@ -1,4 +1,6 @@
-package joejensen.blackjack;
+package joejensen.blackjack.models;
+
+import joejensen.blackjack.models.BasePlayer;
 
 public class Dealer extends BasePlayer {
 

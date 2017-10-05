@@ -1,4 +1,4 @@
-package joejensen.blackjack;
+package joejensen.blackjack.models;
 
 public class Dollars {
 
@@ -41,16 +41,17 @@ public class Dollars {
         }
     }
 
-    public void add(int value) {
-        add((double)value);
+    public Dollars add(int value) {
+        return add((double)value);
     }
 
-    public void add(double value) {
+    public Dollars add(double value) {
         int wholeValue = (int) value;
         int decimalValue = (int)((value - (double)wholeValue) * 100);
         this.wholeValue += wholeValue;
         this.decimalValue += decimalValue;
         moveOverflowDecimalToWhole();
+        return this;
     }
 
     public String toString() {
@@ -64,25 +65,49 @@ public class Dollars {
         return val;
     }
 
-    public void subtract(int value) {
-        add(-1 * value);
+    public Dollars subtract(int value) {
+        return add(-1 * value);
     }
 
-    public void subtract(double value) {
-        add(-1 * value);
+    Dollars subtract(double value) {
+        return add(-1 * value);
     }
 
-    public void add(Dollars d) {
+    Dollars add(Dollars d) {
         this.wholeValue += d.wholeValue;
         this.decimalValue += d.decimalValue;
         moveOverflowDecimalToWhole();
+        return this;
     }
 
-    public void subtract(Dollars d) {
+    public Dollars subtract(Dollars d) {
         this.wholeValue -= d.wholeValue;
         this.decimalValue -= d.decimalValue;
         moveOverflowDecimalToWhole();
+        return this;
     }
 
+    public void clear() {
+        this.wholeValue = 0;
+        this.decimalValue = 0;
+    }
+
+    public Dollars getHalf() {
+        int wholeVal = this.wholeValue / 2;
+        int decVal = this.decimalValue / 2;
+        decVal += ((double)this.wholeValue / 2.0 - wholeVal) * 100;
+        Dollars d = new Dollars(wholeVal, decVal);
+        d.moveOverflowDecimalToWhole();
+        return d;
+    }
+
+    public Dollars getFifth() {
+        int wholeVal = this.wholeValue / 5;
+        int decVal = this.decimalValue / 5;
+        decVal += ((double)this.wholeValue / 5.0 - wholeVal) * 100;
+        Dollars d = new Dollars(wholeVal, decVal);
+        d.moveOverflowDecimalToWhole();
+        return d;
+    }
 
 }

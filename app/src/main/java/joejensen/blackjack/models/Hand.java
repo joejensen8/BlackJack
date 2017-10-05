@@ -1,4 +1,4 @@
-package joejensen.blackjack;
+package joejensen.blackjack.models;
 
 import java.util.HashSet;
 import java.util.Set;

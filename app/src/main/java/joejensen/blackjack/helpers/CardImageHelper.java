@@ -1,7 +1,10 @@
-package joejensen.blackjack;
+package joejensen.blackjack.helpers;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+
+import joejensen.blackjack.R;
+import joejensen.blackjack.models.Card;
 
 public class CardImageHelper {
 

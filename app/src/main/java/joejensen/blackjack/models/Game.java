@@ -1,4 +1,4 @@
-package joejensen.blackjack;
+package joejensen.blackjack.models;
 
 public class Game {
 
@@ -11,7 +11,7 @@ public class Game {
     }
 
     public Game(int numDecks) {
-        this.player = new Player();
+        this.player = new Player(500);
         this.dealer = new Dealer();
         this.deck = new Deck(numDecks);
     }

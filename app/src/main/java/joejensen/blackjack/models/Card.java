@@ -1,4 +1,4 @@
-package joejensen.blackjack;
+package joejensen.blackjack.models;
 
 public class Card {
 
