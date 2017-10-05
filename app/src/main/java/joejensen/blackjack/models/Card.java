@@ -1,5 +1,8 @@
 package joejensen.blackjack.models;
 
+import joejensen.blackjack.enums.CardName;
+import joejensen.blackjack.enums.Suit;
+
 public class Card {
 
     private CardName cardName;

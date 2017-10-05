@@ -1,4 +1,4 @@
-package joejensen.blackjack.models;
+package joejensen.blackjack.enums;
 
 public enum Suit {
 

@@ -1,5 +1,7 @@
 package joejensen.blackjack.models;
 
+import joejensen.blackjack.enums.Payout;
+
 public class Settings {
 
     private Payout payout;
