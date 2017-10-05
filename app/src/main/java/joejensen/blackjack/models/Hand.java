@@ -50,7 +50,7 @@ public class Hand {
         return (getScore() > 21);
     }
 
-    public void clearHand() {
+    public void clear() {
         cards.clear();
         containsAce = false;
         didAceBecomeOne = false;

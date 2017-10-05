@@ -13,14 +13,7 @@ import joejensen.blackjack.models.Game;
 public class PlayActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Game game;
-    private static Settings settings;
-
-    private Button hitButton;
-    private Button standButton;
-    private Button splitButton;
-    private Button doubleDownButton;
-    private Button changeBetButton;
-
+    //private static Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +27,11 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initButtons() {
-        hitButton = (Button) findViewById(R.id.hit_button);
-        standButton = (Button) findViewById(R.id.stand_button);
-        splitButton = (Button) findViewById(R.id.split_button);
-        doubleDownButton = (Button) findViewById(R.id.double_down_button);
-        changeBetButton = (Button) findViewById(R.id.change_bet_button);
+        Button hitButton = (Button) findViewById(R.id.hit_button);
+        Button standButton = (Button) findViewById(R.id.stand_button);
+        Button splitButton = (Button) findViewById(R.id.split_button);
+        Button doubleDownButton = (Button) findViewById(R.id.double_down_button);
+        Button changeBetButton = (Button) findViewById(R.id.change_bet_button);
 
         hitButton.setOnClickListener(this);
         standButton.setOnClickListener(this);
@@ -69,22 +62,22 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onHit() {
-
+        game.playerHit();
     }
 
     private void onStand() {
-
+        game.playerStand();
     }
 
     private void onDoubleDown() {
-
+        game.playerDoubleDown();
     }
 
     private void onSplit() {
-
+        game.playerSplit();
     }
 
     private void onChangeBet() {
-
+        //game.playerChangeContinualBet();
     }
 }
