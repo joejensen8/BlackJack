@@ -17,5 +17,25 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
 
+    <Button
+        android:id="@+id/hit_button"
+        style="@style/actionButton" />
+
+    <Button
+        android:id="@+id/stand_button"
+        style="@style/actionButton" />
+
+    <Button
+        android:id="@+id/split_button"
+        style="@style/actionButton" />
+
+    <Button
+        android:id="@+id/double_down_button"
+        style="@style/actionButton" />
+
+    <Button
+        android:id="@+id/change_bet_button"
+        style="@style/actionButton" />
+
 
 </android.support.constraint.ConstraintLayout>
