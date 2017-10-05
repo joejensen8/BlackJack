@@ -11,7 +11,7 @@
     <style name="actionButton">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">40dp</item>
-        <item name="android:color">red</item>
+        <item name="android:color">@color/red</item>
     </style>
 
 </resources>
