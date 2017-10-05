@@ -56,4 +56,8 @@ public class Hand {
         didAceBecomeOne = false;
     }
 
+    public boolean isSoft17() {
+        return (getScore() == 17 && containsAce && !didAceBecomeOne);
+    }
+
 }

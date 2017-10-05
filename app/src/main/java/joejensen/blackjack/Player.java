@@ -8,4 +8,8 @@ public class Player extends BasePlayer {
         super();
     }
 
+    public void changeContinualBet(double Dollars) {
+
+    }
+
 }

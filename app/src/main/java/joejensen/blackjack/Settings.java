@@ -1,4 +1,4 @@
 package joejensen.blackjack;
 
-public class SettingsActivity {
+public class Settings {
 }
