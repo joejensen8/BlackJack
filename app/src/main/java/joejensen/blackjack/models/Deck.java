@@ -26,7 +26,11 @@ public class Deck {
                 for (int cardName = 1; cardName <= 13; cardName++) {
                     Suit currSuit = Suit.getSuitFromInt(suit);
                     CardName currCardName = CardName.getCardNameFromInt(cardName);
-                    deck[index] = new Card(currCardName, currSuit);
+                    if (currCardName == CardName.ACE) {
+                        deck[index] = new Ace(currSuit);
+                    } else {
+                        deck[index] = new Card(currCardName, currSuit);
+                    }
                     index++;
                 }
             }
@@ -46,9 +50,13 @@ public class Deck {
                 }
             }
         }
+        spot = 0;
     }
 
     public Card getNext() {
+        if (spot >= deck.length) {
+            shuffle();
+        }
         int temp = spot;
         spot++;
         return deck[temp];

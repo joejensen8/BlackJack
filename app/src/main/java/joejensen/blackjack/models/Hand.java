@@ -5,45 +5,56 @@ import java.util.Set;
 
 public class Hand {
 
-    private Set<Card> cards;
-    private boolean containsAce = false;
-    private boolean didAceBecomeOne = false;
+    private Set<Card> nonAces;
+    private Set<Ace> aces;
 
     public Hand() {
-        cards = new HashSet<>();
+        nonAces = new HashSet<>();
+        aces = new HashSet<>();
     }
 
     public void giveCard(Card card) {
-        cards.add(card);
+        if (card.isAce()) {
+            aces.add((Ace) card);
+        } else {
+            nonAces.add(card);
+        }
     }
 
     public int getScore() {
+        return getTotalNonAceValue() + getTotalAceValue();
+    }
+
+    private int getTotalAceValue() {
+        int score = aces.size();
+        int counter = 0;
+        while (counter < aces.size() && score + getTotalNonAceValue() < 22) {
+            score += 10;
+            counter++;
+        }
+        return score;
+    }
+
+    private int getTotalNonAceValue() {
         int score = 0;
-        for (Card card : cards) {
+        for (Card card : nonAces) {
             score += card.getValue();
-            if (card.isAce()) {
-                containsAce = true;
-            }
         }
-
-        if (score > 21 && containsAce) {
-            score -= 10;
-            didAceBecomeOne = true;
-        }
-
         return score;
     }
 
     public String getReadableScore() {
-        String readableScore = "" + getScore();
-        if (containsAce && !didAceBecomeOne) {
-            readableScore += " or " + (getScore() - 10);
+        int score = getScore();
+        if (!didAceBecome11()) {
+            return Integer.toString(score);
+        } else {
+            int smallerScore = score - 10;
+            return Integer.toString(score) + " or " + Integer.toString(smallerScore);
         }
-        return readableScore;
     }
 
     public boolean isBlackJack() {
-        return (getScore() == 21 && containsAce && cards.size() == 2);
+        return (aces.size() == 1 && nonAces.size() == 1 && getScore() == 21);
     }
 
     public boolean isBust() {
@@ -51,13 +62,16 @@ public class Hand {
     }
 
     public void clear() {
-        cards.clear();
-        containsAce = false;
-        didAceBecomeOne = false;
+        nonAces.clear();
+        aces.clear();
     }
 
     public boolean isSoft17() {
-        return (getScore() == 17 && containsAce && !didAceBecomeOne);
+        return (getScore() == 17 && didAceBecome11());
+    }
+
+    private boolean didAceBecome11() {
+        return (getTotalAceValue() != aces.size());
     }
 
 }
