@@ -9,13 +9,7 @@ public class Dealer extends BasePlayer {
     }
 
     public boolean shouldHit() {
-        if (super.getHand().getScore() < 17) {
-            return true;
-        } else if (super.getHand().getScore() == 17 && super.getHand().isSoft17()) {
-            return true;
-        } else {
-            return false;
-        }
+        return (super.getHand().getScore() < 17 || super.getHand().isSoft17());
     }
 
 }

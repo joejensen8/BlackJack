@@ -61,6 +61,7 @@ public class Game {
     }
 
     private void endHand() {
+        letDealerPlay();
         HandResult handResult = determineWinners();
         player.givePayout(handResult, PAYOUT);
         dealer.getHand().clear();
@@ -92,12 +93,21 @@ public class Game {
         return HandResult.WON; // default to player winning
     }
 
-    public void playerHit() {
+    private void letDealerPlay() {
+        while (dealer.shouldHit()) {
+            dealer.getHand().giveCard(deck.getNext());
+        }
+    }
 
+    public void playerHit() {
+        player.getHand().giveCard(deck.getNext());
+        if (player.getHand().isBust()) {
+            endHand();
+        }
     }
 
     public void playerStand() {
-
+        endHand();
     }
 
     public void playerSplit() {
@@ -105,7 +115,9 @@ public class Game {
     }
 
     public void playerDoubleDown() {
-
+        player.doubleDown();
+        player.getHand().giveCard(deck.getNext());
+        endHand();
     }
 
     public void playerChangeContinualBet(int dollars) {

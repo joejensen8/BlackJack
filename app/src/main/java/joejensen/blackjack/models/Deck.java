@@ -1,5 +1,7 @@
 package joejensen.blackjack.models;
 
+import java.util.EnumSet;
+
 import joejensen.blackjack.enums.CardName;
 import joejensen.blackjack.enums.Suit;
 
@@ -22,14 +24,12 @@ public class Deck {
         deck = new Card[numDecks * 52];
         int index = 0;
         for (int deckNum = 0; deckNum < numDecks; deckNum++) {
-            for (int suit = 1; suit <= 4; suit++) {
-                for (int cardName = 1; cardName <= 13; cardName++) {
-                    Suit currSuit = Suit.getSuitFromInt(suit);
-                    CardName currCardName = CardName.getCardNameFromInt(cardName);
-                    if (currCardName == CardName.ACE) {
-                        deck[index] = new Ace(currSuit);
+            for (Suit suit : EnumSet.allOf(Suit.class)) {
+                for (CardName cardName : EnumSet.allOf(CardName.class)) {
+                    if (cardName == CardName.ACE) {
+                        deck[index] = new Ace(suit);
                     } else {
-                        deck[index] = new Card(currCardName, currSuit);
+                        deck[index] = new Card(cardName, suit);
                     }
                     index++;
                 }

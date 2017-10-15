@@ -92,22 +92,19 @@ public class Dollars {
         this.decimalValue = 0;
     }
 
-    public Dollars getHalf() {
-        int wholeVal = this.wholeValue / 2;
-        int decVal = this.decimalValue / 2;
-        decVal += ((double)this.wholeValue / 2.0 - wholeVal) * 100;
+    public Dollars getPortion(int denominator) {
+        int wholeVal = this.wholeValue / denominator;
+        int decVal = this.decimalValue / denominator;
+        decVal += ((double)this.wholeValue / (double)denominator - wholeVal) * 100;
         Dollars d = new Dollars(wholeVal, decVal);
         d.moveOverflowDecimalToWhole();
         return d;
     }
 
-    public Dollars getFifth() {
-        int wholeVal = this.wholeValue / 5;
-        int decVal = this.decimalValue / 5;
-        decVal += ((double)this.wholeValue / 5.0 - wholeVal) * 100;
-        Dollars d = new Dollars(wholeVal, decVal);
-        d.moveOverflowDecimalToWhole();
-        return d;
+    public void doubleValue() {
+        this.wholeValue *= 2;
+        this.decimalValue *= 2;
+        moveOverflowDecimalToWhole();
     }
 
 }

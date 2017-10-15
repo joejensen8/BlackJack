@@ -30,7 +30,7 @@ public class Player extends BasePlayer {
     public void givePayout(HandResult handResult, Payout payout) {
         switch (handResult) {
             case BLACKJACK:
-                dollars.add(Payout.getBlackJackExtraWinnings(currentBet, payout));
+                dollars.add(payout.getBlackJackExtraWinnings(currentBet));
                 dollars.add(currentBet).add(currentBet);
                 break;
             case WON:
@@ -41,6 +41,11 @@ public class Player extends BasePlayer {
                 break;
         }
         currentBet.clear();
+    }
+
+    public void doubleDown() {
+        this.dollars.subtract(this.currentBet);
+        this.currentBet.doubleValue();
     }
 
 }

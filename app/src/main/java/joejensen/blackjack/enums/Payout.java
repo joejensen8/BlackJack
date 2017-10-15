@@ -8,12 +8,12 @@ public enum Payout {
     SIX_TO_FIVE,
     INVALID;
 
-    public static Dollars getBlackJackExtraWinnings(Dollars dollars, Payout payout) {
-        switch (payout) {
+    public Dollars getBlackJackExtraWinnings(Dollars dollars) {
+        switch (this) {
             case THREE_TO_TWO:
-                return dollars.getHalf();
+                return dollars.getPortion(2);
             case SIX_TO_FIVE:
-                return dollars.getFifth();
+                return dollars.getPortion(5);
             case INVALID:
                 return new Dollars(0);
         }
