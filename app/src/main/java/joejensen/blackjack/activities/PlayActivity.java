@@ -80,4 +80,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     private void onChangeBet() {
         //game.playerChangeContinualBet();
     }
+
+    public void setButtonVisibility() {
+
+    }
 }

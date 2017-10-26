@@ -46,7 +46,6 @@ public class Card {
         }
     }
 
-    // todo remove this method... or change to instanceof Ace
     public boolean isAce() {
         return (this instanceof Ace);
     }
