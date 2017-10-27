@@ -1,7 +1,9 @@
 package joejensen.blackjack.models;
 
+import joejensen.blackjack.activities.PlayActivity;
 import joejensen.blackjack.enums.Payout;
 
+// todo make as a preferences class?
 public class Settings {
 
     private Payout payout;
@@ -12,6 +14,10 @@ public class Settings {
 
     public Payout getPayout() {
         return this.payout;
+    }
+
+    public void showSettingsModal(PlayActivity activity) {
+
     }
 
 }

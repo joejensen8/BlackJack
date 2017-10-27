@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,60 +24,11 @@
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="8dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/toolbar_settings"
-                    style="@style/toolbar_button"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_settings"/>
-
-                <TextView
-                    android:id="@+id/toolbar_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/toolbar_settings"
-                    android:layout_centerVertical="true"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="20dp"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-                <ImageView
-                    android:id="@+id/toolbar_help"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    style="@style/toolbar_button"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_help_outline"/>
-
-            </RelativeLayout>
+                <include layout="@layout/toolbar"/>
 
         </android.support.v7.widget.Toolbar>
 
-        <RelativeLayout
-            android:id="@+id/dealer_hand"
-            android:layout_below="@id/play_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp">
-
-            <ImageView
-                android:id="@+id/dealer_card1"
-                style="@style/card"
-                android:src="@drawable/eight_of_clubs"/>
-
-            <ImageView
-                android:id="@+id/dealer_card2"
-                android:layout_marginStart="20dp"
-                style="@style/card"
-                android:src="@drawable/jack_of_diamonds"/>
-
-        </RelativeLayout>
+        <include layout="@layout/dealer_hand"/>
 
         <TextView
             android:id="@+id/alert_text"
@@ -89,64 +41,9 @@
             android:textColor="@color/white"
             android:textSize="24sp"/>
 
-        <RelativeLayout
-            android:id="@+id/player_hand"
-            android:layout_above="@id/player_buttons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp">
+        <include layout="@layout/player_hand"/>
 
-            <ImageView
-                android:id="@+id/player_card1"
-                style="@style/card"
-                android:src="@drawable/two_of_clubs"/>
-
-            <ImageView
-                android:id="@+id/player_card2"
-                style="@style/card"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/king_of_hearts"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/player_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/bottom_info"
-            android:layout_marginBottom="5dp">
-
-            <Button
-                android:id="@+id/hit_button"
-                style="@style/actionButton"
-                android:text="@string/hit"/>
-
-            <Button
-                android:id="@+id/stand_button"
-                style="@style/actionButton"
-                android:layout_toEndOf="@id/hit_button"
-                android:text="@string/stand"/>
-
-            <Button
-                android:id="@+id/split_button"
-                style="@style/actionButton"
-                android:layout_toEndOf="@id/stand_button"
-                android:text="@string/split"/>
-
-            <Button
-                android:id="@+id/double_down_button"
-                style="@style/actionButton"
-                android:layout_toEndOf="@id/split_button"
-                android:text="@string/double_down"/>
-
-            <Button
-                android:id="@+id/change_bet_button"
-                style="@style/actionButton"
-                android:layout_toEndOf="@id/double_down_button"
-                android:text="@string/change_bet"/>
-
-        </RelativeLayout>
+        <include layout="@layout/player_buttons"/>
 
         <LinearLayout
             android:id="@+id/bottom_info"
@@ -157,6 +54,7 @@
             android:layout_marginBottom="4dp">
 
             <TextView
+                android:id="@+id/bottom_info_text_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="test"
@@ -165,6 +63,7 @@
                 android:layout_marginStart="5dp"/>
 
             <TextView
+                android:id="@+id/bottom_info_text_right"
                 android:layout_marginStart="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

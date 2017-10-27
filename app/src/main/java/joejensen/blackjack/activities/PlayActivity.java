@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import joejensen.blackjack.R;
 import joejensen.blackjack.models.Settings;
@@ -13,6 +14,14 @@ import joejensen.blackjack.models.Game;
 public class PlayActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Game game;
+    private Button hitButton;
+    private Button standButton;
+    private Button splitButton;
+    private Button doubleDownButton;
+    private Button changeBetButton;
+    private TextView bottomTextLeft;
+    private TextView bottomTextRight;
+
     //private static Settings settings;
 
     @Override
@@ -27,17 +36,19 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initButtons() {
-        Button hitButton = (Button) findViewById(R.id.hit_button);
-        Button standButton = (Button) findViewById(R.id.stand_button);
-        Button splitButton = (Button) findViewById(R.id.split_button);
-        Button doubleDownButton = (Button) findViewById(R.id.double_down_button);
-        Button changeBetButton = (Button) findViewById(R.id.change_bet_button);
+        this.hitButton = (Button) findViewById(R.id.hit_button);
+        this.standButton = (Button) findViewById(R.id.stand_button);
+        this.splitButton = (Button) findViewById(R.id.split_button);
+        this.doubleDownButton = (Button) findViewById(R.id.double_down_button);
+        this.changeBetButton = (Button) findViewById(R.id.change_bet_button);
+        this.bottomTextLeft = (TextView) findViewById(R.id.bottom_info_text_left);
+        this.bottomTextRight = (TextView) findViewById(R.id.bottom_info_text_right);
 
-        hitButton.setOnClickListener(this);
-        standButton.setOnClickListener(this);
-        splitButton.setOnClickListener(this);
-        doubleDownButton.setOnClickListener(this);
-        changeBetButton.setOnClickListener(this);
+        this.hitButton.setOnClickListener(this);
+        this.standButton.setOnClickListener(this);
+        this.splitButton.setOnClickListener(this);
+        this.doubleDownButton.setOnClickListener(this);
+        this.changeBetButton.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +68,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.change_bet_button:
                 onChangeBet();
+                break;
+            case R.id.toolbar_settings:
+                showSettingsPage();
+                break;
+            case R.id.toolbar_help:
+                showHelpPage();
                 break;
         }
     }
@@ -81,7 +98,40 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         //game.playerChangeContinualBet();
     }
 
+    private void showSettingsPage() {
+
+    }
+
+    private void showHelpPage() {
+
+    }
+
     public void setButtonVisibility() {
 
     }
+
+    private void showButtons(boolean showHitButton, boolean showStandButton, boolean showSplitButton,
+                             boolean showDoubleDownButton, boolean showChangeBetButton) {
+
+        int hitVisible = showHitButton ? View.VISIBLE : View.GONE;
+        int standVisible = showHitButton ? View.VISIBLE : View.GONE;
+        int splitVisible = showSplitButton ? View.VISIBLE : View.GONE;
+        int doubleDownVisible = showDoubleDownButton ? View.VISIBLE : View.GONE;
+        int changeBetVisible = showChangeBetButton ? View.VISIBLE : View.GONE;
+
+        this.hitButton.setVisibility(hitVisible);
+        this.standButton.setVisibility(standVisible);
+        this.splitButton.setVisibility(splitVisible);
+        this.doubleDownButton.setVisibility(doubleDownVisible);
+        this.changeBetButton.setVisibility(changeBetVisible);
+    }
+
+    private void setBottomTextLeft(String value) {
+        bottomTextLeft.setText(value);
+    }
+
+    private void setBottomTextRight(String value) {
+        bottomTextRight.setText(value);
+    }
+
 }

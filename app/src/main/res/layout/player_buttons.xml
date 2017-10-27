@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/player_buttons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/bottom_info"
+    android:layout_marginBottom="5dp">
+
+    <Button
+        android:id="@+id/hit_button"
+        style="@style/actionButton"
+        android:text="@string/hit"/>
+
+    <Button
+        android:id="@+id/stand_button"
+        style="@style/actionButton"
+        android:layout_toEndOf="@id/hit_button"
+        android:text="@string/stand"/>
+
+    <Button
+        android:id="@+id/split_button"
+        style="@style/actionButton"
+        android:layout_toEndOf="@id/stand_button"
+        android:text="@string/split"/>
+
+    <Button
+        android:id="@+id/double_down_button"
+        style="@style/actionButton"
+        android:layout_toEndOf="@id/split_button"
+        android:text="@string/double_down"/>
+
+    <Button
+        android:id="@+id/change_bet_button"
+        style="@style/actionButton"
+        android:layout_toEndOf="@id/double_down_button"
+        android:text="@string/change_bet"/>
+
+</RelativeLayout>

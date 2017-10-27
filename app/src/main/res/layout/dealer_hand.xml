@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dealer_hand"
+    android:layout_below="@id/play_toolbar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="25dp">
+
+    <ImageView
+        android:id="@+id/dealer_card1"
+        style="@style/card"
+        android:src="@drawable/eight_of_clubs"/>
+
+    <ImageView
+        android:id="@+id/dealer_card2"
+        android:layout_marginStart="20dp"
+        style="@style/card"
+        android:src="@drawable/jack_of_diamonds"/>
+
+</RelativeLayout>
