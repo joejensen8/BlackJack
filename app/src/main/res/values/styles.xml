@@ -16,4 +16,14 @@
         <item name="android:layout_margin">4dp</item>
     </style>
 
+    <style name="card">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+
+    <style name="toolbar_button">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
 </resources>
