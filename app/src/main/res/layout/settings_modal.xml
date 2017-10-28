@@ -30,13 +30,14 @@
                     android:id="@+id/settings_back"
                     style="@style/toolbar_button"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_back"/>
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="Back"/>
 
                 <TextView
                     android:id="@+id/settings_toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/toolbar_settings"
+                    android:layout_toEndOf="@id/settings_back"
                     android:layout_centerVertical="true"
                     android:text="@string/settings_title"
                     android:textColor="@color/white"

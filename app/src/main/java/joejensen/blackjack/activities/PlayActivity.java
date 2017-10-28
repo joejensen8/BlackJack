@@ -22,7 +22,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     private TextView bottomTextLeft;
     private TextView bottomTextRight;
 
-    //private static Settings settings;
+    private Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,10 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_play);
         Toolbar playToolbar = (Toolbar) findViewById(R.id.play_toolbar);
         setSupportActionBar(playToolbar);
+        this.settings = new Settings();
 
         initButtons();
-        game = new Game();
+        this.game = new Game();
     }
 
     private void initButtons() {
@@ -99,7 +100,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showSettingsPage() {
-
+        settings.showSettingsModal(getApplicationContext());
     }
 
     private void showHelpPage() {

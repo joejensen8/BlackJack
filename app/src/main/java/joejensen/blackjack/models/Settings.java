@@ -1,5 +1,11 @@
 package joejensen.blackjack.models;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RelativeLayout;
+
+import joejensen.blackjack.R;
 import joejensen.blackjack.activities.PlayActivity;
 import joejensen.blackjack.enums.Payout;
 
@@ -16,8 +22,9 @@ public class Settings {
         return this.payout;
     }
 
-    public void showSettingsModal(PlayActivity activity) {
-
+    public void showSettingsModal(Context context) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        inflater.inflate(R.layout.settings_modal, null);
     }
 
 }

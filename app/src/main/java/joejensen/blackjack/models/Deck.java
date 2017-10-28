@@ -38,6 +38,7 @@ public class Deck {
         shuffle();
     }
 
+    // todo check for better algorithm
     public void shuffle() {
         for (int i = 0; i < deck.length; i++) {
             for (int j = 0; j < deck.length; j++) {
